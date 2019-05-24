@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Task16_20 {
     public static void main(String[] args) {
 //        task16();
-//        task17();
+        task17();
         task18();
     }
 
