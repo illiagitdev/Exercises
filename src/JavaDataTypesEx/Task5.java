@@ -3,6 +3,8 @@ package JavaDataTypesEx;
 import java.util.Date;
 import java.util.Scanner;
 
+//Write a Java program that prints the current time in GMT
+//todo: not finished yet
 public class Task5 {
     public static void main(String[] args) {
         System.out.print("Input the timezone offset to GMT: ");
