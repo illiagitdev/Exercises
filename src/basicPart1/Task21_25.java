@@ -4,7 +4,12 @@ import java.util.Scanner;
 
 public class Task21_25 {
     public static void main(String[] args) {
-        task21();
+//        task21();
+        task22();
+    }
+
+    //  Write a Java program to convert a binary number to decimal number
+    private static void task22() {
     }
 
     //Write a Java program to convert a decimal number to octal number
