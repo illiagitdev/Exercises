@@ -8,9 +8,9 @@ public class Task16_20 {
 //        task17();
 //        task17a();
         //todo: do task 18
-//        task18();
+        task18();
 //        task19();
-        task20();
+//        task20();
     }
 
     private static void task20() {
@@ -135,31 +135,37 @@ public class Task16_20 {
         }
     }
 
-    // binary multiplication
+    // Write a Java program to multiply two binary numbers.
     private static void task18() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter first value: x = ");
-        long x = scan.nextLong();
-        System.out.println("Enter second value: y = ");
-        long y = scan.nextLong();
-        int i = 0, rem = 0;
-        int[] collector = new int[20];
-        long z = x;
+        System.out.print("Enter first value: x = ");
+        long x = (long) scan();
+        System.out.print("Enter second value: y = ");
+        long y = (long) scan();
 
-        for (int j = 0; j < 8; j++) {
-            rem = (int) (y % 10);
-            if (rem == 0) {
-                j++;
-                continue;
-            }
-            z *= (j == 0 ? 1 : 10);
-            collector = addBinary(x, z);
+        long sum = addBinary(x, y);
+
+
+        System.out.println(addBinary(1101, 110));
+        //  show number
+        System.out.print(sum);
+    }
+
+    private static long addBinary(long x, long y) {
+        int index = 0, rem = 0;
+        int[] collection = new int[20];
+        int result = 0;
+
+        while (y > 0 || x > 0) {
+            collection[index++] = (int)(x % 10 + y % 10 + rem) % 2;
+            rem = (int)(x % 10 + y % 10 + rem) / 2;
+            x /= 10;
+            y /= 10;
         }
 
-        for (int e : collector
-        ) {
-            System.out.print(e);
+        for(;index>0;){
+            result = result * 10 + collection[--index];
         }
+        return result;
     }
 
     //binary addition
@@ -225,19 +231,8 @@ public class Task16_20 {
         System.out.println(" +-----+ ");
     }
 
-    private static int[] addBinary(long binary1, long binary2) {
-        int i = 0, rem = 0;
-        int[] collector = new int[20];
-
-        while (binary1 != 0 || binary2 != 0) {
-            collector[i++] = (int) ((binary1 % 10 + binary2 % 10 + rem) % 2);
-            rem = (int) ((binary1 % 10 + binary2 % 10 + rem) / 2);
-            binary1 /= 10;
-            binary2 /= 10;
-        }
-        if (rem != 0) {
-            collector[i++] = rem;
-        }
-        return collector;
+    public static double scan() {
+        Scanner scan = new Scanner(System.in);
+        return scan.nextDouble();
     }
 }

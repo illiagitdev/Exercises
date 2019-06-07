@@ -14,7 +14,16 @@ public class Task1_5 {
     //  Write a Java program that keeps a number from the user and generates
     //  an integer between 1 and 7 and displays the name of the weekday.
     private static void task5() {
+        System.out.print("Enter day number: ");
+        Scanner scan = new Scanner(System.in);
+        int dayNumber = scan.nextInt();
+        String[] weekDays = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
+        if (dayNumber >= 1 && dayNumber <= 7) {
+            System.out.println(weekDays[dayNumber - 1]);
+        } else {
+            System.out.println("No such day in a week!");
+        }
     }
 
     //  Write a Java program that reads a floating-point number and prints "zero" if the number is zero.
@@ -45,7 +54,7 @@ public class Task1_5 {
             } else {
                 System.out.println("positive");
             }
-        }else if(value == 0){
+        } else if (value == 0) {
             System.out.println((int) value);
         }
     }
