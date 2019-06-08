@@ -95,7 +95,7 @@ public class Task16_20 {
         int x = scan.nextInt();
         int z = x;
         int i = 0;
-        int[] res = new int[20];
+        int[] res = new int[32];
 
         while (z != 0) {
             res[i++] = z % 2;

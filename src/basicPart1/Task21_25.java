@@ -7,7 +7,22 @@ public class Task21_25 {
 //        task21();
 //        task22();
 //        task23();
-        task24();
+//        task24();
+        task25();
+    }
+
+    //  Write a Java program to convert a octal number to a decimal number.
+    private static void task25() {
+        System.out.print("Enter Octal number: ");
+        int octalInput = (int) scan();
+        int decimal = 0, index = 1;
+        while (octalInput !=0){
+            decimal = decimal + (octalInput % 10) * index;
+            index *= 8;
+            octalInput /= 10;
+        }
+
+        System.out.println("Result: " + decimal);
     }
 
     //  Write a Java program to convert a binary number to a Octal number.
@@ -19,7 +34,7 @@ public class Task21_25 {
         int index = 0, z = 1;
         while (binaryNumber > 0){
             for(int i = 0; i < 3; i++){
-                index = index + (int)(binaryNumber % 10) * z;
+                index += (int)(binaryNumber % 10) * z;
                 z *= 2;
                 binaryNumber /= 10;
             }
