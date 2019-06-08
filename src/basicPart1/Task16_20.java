@@ -7,7 +7,6 @@ public class Task16_20 {
 //        task16();
 //        task17();
 //        task17a();
-        //todo: do task 18
         task18();
 //        task19();
 //        task20();
@@ -141,29 +140,55 @@ public class Task16_20 {
         long x = (long) scan();
         System.out.print("Enter second value: y = ");
         long y = (long) scan();
+        long sum = 0;
+        int i = 1;
+        int step = 0;
 
-        long sum = addBinary(x, y);
+        while (y != 0){
+            if((y % 10) != 0){
+                if(sum != 0){
+                    sum = addBinary(sum, x * i);
+                }else {
+                    sum = x * i;
+                }
+            }else {}
+
+            System.out.println("sum:" + sum);
+            y /= 10;
+            i *= 10;
+        }
 
 
-        System.out.println(addBinary(1101, 110));
+
+//        System.out.println(addBinary(1101, 110));
         //  show number
         System.out.print(sum);
     }
 
+    /**
+     * Working Binary addition!!!
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     private static long addBinary(long x, long y) {
         int index = 0, rem = 0;
         int[] collection = new int[20];
-        int result = 0;
+        long result = 0;
 
         while (y > 0 || x > 0) {
-            collection[index++] = (int)(x % 10 + y % 10 + rem) % 2;
-            rem = (int)(x % 10 + y % 10 + rem) / 2;
+            collection[index++] = (int) ((x % 10 + y % 10 + rem) % 2);
+            rem = (int) ((x % 10 + y % 10 + rem) / 2);
             x /= 10;
             y /= 10;
         }
+        if (rem != 0) {
+            collection[index++] = rem;
+        }
 
-        for(;index>0;){
-            result = result * 10 + collection[--index];
+        for (; 0 <= index; ) {
+            result = result * 10 + collection[index--];
         }
         return result;
     }

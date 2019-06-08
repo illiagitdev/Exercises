@@ -10,8 +10,26 @@ public class Task21_25 {
         task24();
     }
 
+    //  Write a Java program to convert a binary number to a Octal number.
     private static void task24() {
+        System.out.print("Enter binary number: ");
+        long binaryNumber = (long)scan();
+        char[] octals = {'0', '1', '2', '3', '4', '5', '6', '7', '8'};
+        String octalNum = "";
+        int index = 0, z = 1;
+        while (binaryNumber > 0){
+            for(int i = 0; i < 3; i++){
+                index = index + (int)(binaryNumber % 10) * z;
+                z *= 2;
+                binaryNumber /= 10;
+            }
+            System.out.println("triplet:" + index);
+            octalNum = octals[index] + octalNum;
+            z = 1;
+            index = 0;
+        }
 
+        System.out.println("Octal number: " + octalNum);
     }
 
     //Write a Java program to convert a binary number to hexadecimal number
@@ -30,7 +48,7 @@ public class Task21_25 {
                     //System.out.println("index:" + index + " number: " + binaryInput);
                 }
             }
-            System.out.println(tetrade);
+//            System.out.println(tetrade);
             hexaOutput = hexa[tetrade] + hexaOutput;
             tetrade = 0;
             index = 1;
