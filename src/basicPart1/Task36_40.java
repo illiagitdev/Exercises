@@ -1,5 +1,6 @@
 package basicPart1;
 
+import java.nio.charset.Charset;
 import java.util.Scanner;
 
 import static jdk.nashorn.internal.objects.NativeArray.forEach;
@@ -13,6 +14,16 @@ public class Task36_40 {
 //        task37();
 //        task38();
         task39();
+//        task40();
+    }
+
+    //  Write a Java program to list the available character sets in charset objects
+    private static void task40() {
+        System.out.println("Available charsets:");
+        for (String str : Charset.availableCharsets().keySet()
+        ) {
+            System.out.println(str);
+        }
     }
 
     //  Write a Java program to create and display unique three-digit number using 1, 2, 3, 4. Also count how many three-digit numbers are there.
@@ -20,16 +31,21 @@ public class Task36_40 {
         int[] setOfNumbers = {1, 2, 3, 4};
         int count = 0;
 
-        String result = generateValue(setOfNumbers);
+        String result = "";
 
-        System.out.println();
-    }
-
-    private static String generateValue(int[] setOfNumbers) {
-        int i = 0, j = 0, k = 0;
-
-        String result = setOfNumbers[i] + "" + setOfNumbers[j] + "" + setOfNumbers[k];
-        return result;
+        int len = setOfNumbers.length;
+        for (int i = 0; i < len; i++) {
+            for (int k = 0; k < len; k++) {
+                for (int j = 0; j < len; j++) {
+                    if ((setOfNumbers[i] != setOfNumbers[k]) && (setOfNumbers[i] != setOfNumbers[j]) && (setOfNumbers[k] != setOfNumbers[j])) {
+                        result = setOfNumbers[i] + "" + setOfNumbers[k] + "" + setOfNumbers[j];
+                        count++;
+                        System.out.println(result);
+                    }
+                }
+            }
+        }
+        System.out.println(count);
     }
 
     //  Write a Java program to count the letters, spaces, numbers and other characters of an input string.
