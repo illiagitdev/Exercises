@@ -15,16 +15,40 @@ public class Task46_50 {
 
     //  Write a Java program to print numbers between 1 to 100 which are divisible by 3, 5 and by both
     private static void task50() {
-        d
+        int valX = 3, valY = 5;
+
+        System.out.println("Divides by 3:\n" + divisibleBy(3));
+        System.out.println("Divides by 5:\n" + divisibleBy(5));
+        System.out.println("Divides by 3 & 5:\n" + divisibleBy(3, 5));
+    }
+
+    private static String divisibleBy(int divider1, int divider2) {
+        String str = "";
+        for (int i = 0; i<=100;i++){
+            if ((i % divider1 == 0)&&(i % divider2 == 0)){
+                str += i + " ";
+            }
+        }
+        return str;
+    }
+
+    private static String divisibleBy(int divider) {
+        String str = "";
+        for (int i = 0; i<=100;i++){
+            if (i % divider == 0){
+                str += i + " ";
+            }
+        }
+        return str;
     }
 
     //  Write a Java program to accept a number and check the number is even or not. Prints 1 if the number is even or 0 if the number is odd.
     private static void task49() {
         System.out.print("Enter number: ");
-        int number = (int)ScanNumber();
-        if(number%2!=0){
+        int number = (int) ScanNumber();
+        if (number % 2 != 0) {
             System.out.println("1");
-        }else {
+        } else {
             System.out.println("0");
         }
     }
@@ -36,8 +60,8 @@ public class Task46_50 {
 
     //  Write a Java program to print the odd numbers from 1 to 99. Prints one number per line.
     private static void task48() {
-        for (int i = 0; i<=99; i++){
-            if(i%2!=0) {
+        for (int i = 0; i <= 99; i++) {
+            if (i % 2 != 0) {
                 System.out.println(i);
             }
         }
