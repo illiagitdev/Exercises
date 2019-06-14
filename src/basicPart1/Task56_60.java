@@ -13,10 +13,13 @@ public class Task56_60 {
 
     //  Write a Java program to find the penultimate (next to last) word of a sentence.
     private static void task60() {
-        String str = null;
         System.out.print("Input the sentence: ");
-        str = scanString();
+        String str = scanString();
+        Scanner scan = new Scanner(System.in);
 
+        //  Input a String: The quick brown fox jumps over the lazy dog.
+        String[] word = str.split("[ ]");
+        System.out.println("The penultinate word: " + word[word.length-2]);
     }
 
     //  Write a Java program to convert a given string into lowercase
