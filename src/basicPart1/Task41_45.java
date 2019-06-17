@@ -53,8 +53,8 @@ public class Task41_45 {
 //      Write a Java program to input and display your password.
     private static void task42() {
         char[] pass = null;
-        Console con;
-        if((con = System.console()) != null){
+        Console con = System.console();
+        if(con != null){
             try {
                 pass = con.readPassword("Enter your password:");
                 System.out.println("Your password is " + new String(pass));
